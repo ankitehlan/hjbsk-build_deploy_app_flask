@@ -3,6 +3,20 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="./static/mywebscript.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $(function() {
+          $('button#sum').on('click', function(e) {
+            alert("dfdcsd")
+            e.preventDefault()
+            $.getJSON('/sum?num1=2&num2=4',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
     <style>
         .center-heading {
             text-align: center;
@@ -26,9 +40,15 @@
             </div>
     
             <div style="padding: 25px;">
-                <button onclick="runAddition()" class="btn btn-secondary">Add</button>
-                <button onclick="runSubtraction()" class="btn btn-secondary">Subtract</button>
-                <button onclick="runMultiplication()" class="btn btn-secondary">Multiply</button>
+                <button class="btn btn-secondary">
+                    <a style="color: black;" href="javascript:;" onclick="this.href='/sum?num1=' + document.getElementById('num1').value + '&num2=' + document.getElementById('num2').value"> Add </a>
+                </button>
+                <button class="btn btn-secondary">
+                    <a style="color: black;" href="javascript:;" onclick="this.href='/sub?num1=' + document.getElementById('num1').value + '&num2=' + document.getElementById('num2').value"> Subtract </a>
+                </button>
+                <button class="btn btn-secondary">
+                    <a style="color: black;" href="javascript:;" onclick="this.href='/mul?num1=' + document.getElementById('num1').value + '&num2=' + document.getElementById('num2').value"> Multiplication </a>
+                </button>
             </div>
 	<h1 class="center-heading">Response from server</h1> 
             <div style="padding: 25px 25px 25px 25px;">

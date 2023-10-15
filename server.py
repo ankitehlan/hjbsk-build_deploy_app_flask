@@ -23,6 +23,7 @@ def mul_route():
 
 @app.route("/")
 def render_index_page():
+    num1 = 1
     # Write your code here
     
 if __name__ == "__main__":
